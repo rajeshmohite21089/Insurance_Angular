@@ -1,0 +1,53 @@
+
+  
+ 
+<div class="row">  
+  <div class="form-outline">   
+      <form [formGroup]="form" #searchInfo (ngSubmit)="searchForm(searchInfo)">  
+          <table>  
+              <tr>  
+                  <td></td><td> <input type="text" formControlName="firstName" placeholder="Enter name" class="form-control"> </td>  
+                  <td><button class="btn btn-primary "><i class="fas fa-search"></i>Search</button></td>  
+                  <td><button *ngIf="loginService.isLogggedInEditor() || loginService.isLoggedInCreator()" (click)="add()" class="btn btn-info">Add Policies </button></td>
+
+              </tr>  
+          </table>  
+      </form>  
+  </div>  
+</div>  
+
+
+<div *ngIf="checkSize()">
+ 
+<div class="panel panel-primary">
+    <div class="panel-heading ">
+      <h1>Employee List</h1>  
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of employees | async">
+            <td>{{employee.firstName}}</td>
+            <td>{{employee.lastName}}</td>
+            <td>{{employee.emailId}}</td>
+
+
+            <td><button *ngIf="loginService.isLogggedInEditor()" (click)="deleteEmployee(employee.id)" class="btn btn-danger">Delete</button>
+                <button *ngIf="loginService.isLogggedInEditor()|| loginService.isLoggedInCreator()" (click)="updateEmployee(employee.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+                <button *ngIf="loginService.isLogggedInEditor() || loginService.isLoggedInCreator()|| loginService.isLoggedInUser() " (click)="employeeDetails(employee.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </div>

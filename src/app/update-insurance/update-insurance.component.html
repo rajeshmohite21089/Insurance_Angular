@@ -1,0 +1,41 @@
+<h3>Update Employee</h3>
+<div style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="name">PolicyType Code</label>
+        <input type="text" class="form-control" id="policyTypeCode" required [(ngModel)]="insurance.policyTypeCode" name="firstName">
+      </div>
+  
+      <div class="form-group">
+        <label for="name">Policy Name</label>
+        <input type="text" class="form-control" id="policyName" required [(ngModel)]="insurance.policyName" name="policyName">
+      </div>
+  
+      <div class="form-group">
+        <label for="name">Description</label>
+        <input type="text" class="form-control" id="description" required [(ngModel)]="insurance.description" name="Description">
+      </div>
+      <div class="form-group">
+          <label for="name">YearsOfPayment</label>
+          <input type="text" class="form-control" id="yearsOfPayment" required [(ngModel)]="insurance.yearsOfPayment" name="yearsOfPayment">
+        </div>
+        <div class="form-group">
+          <label for="name">Amount</label>
+          <input type="text" class="form-control" id="amount" required [(ngModel)]="insurance.amount" name="amount">
+        </div>
+        <div class="form-group">
+          <label for="name">Maturity Pariod</label>
+          <input type="text" class="form-control" id="maturityPariod" required [(ngModel)]="insurance.maturityPariod" name="maturityPariod">
+        </div>
+        <div class="form-group">
+          <label for="name">Maturity Amount</label>
+          <input type="text" class="form-control" id="maturityAmount" required [(ngModel)]="insurance.maturityAmount" name="maturityAmount">
+        </div>
+        <div class="form-group">
+          <label for="name">Validity</label>
+          <input type="text" class="form-control" id="validity" required [(ngModel)]="insurance.validity" name="validity">
+        </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>

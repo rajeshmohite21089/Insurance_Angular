@@ -1,0 +1,33 @@
+<h2>Insurance Details</h2> 
+
+<hr/>
+<div *ngIf="insurance">
+  <div>
+    <label><b>Policy Type Code: </b></label> {{insurance.policyTypeCode}}
+  </div>
+  <div>
+    <label><b>Policy Name: </b></label> {{insurance.policyName}}
+  </div>
+  <div>
+    <label><b>Description: </b></label> {{insurance.description}}
+  </div> 
+  <div>
+    <label><b>Years Of Payment: </b></label> {{insurance.yearsOfPayment}}
+  </div> 
+  <div>
+    <label><b>Amout: </b></label> {{insurance.amount}}
+  </div> 
+  <div>
+    <label><b>Maturity Pariod: </b></label> {{insurance.maturityPariod}}
+  </div>
+  <div>
+    <label><b>Maturity Amount: </b></label> {{insurance.maturityAmount}}
+  </div> 
+  <div>
+    <label><b>Validity: </b></label> {{insurance.validity}}
+  </div> 
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Back to Insurance List</button><br>

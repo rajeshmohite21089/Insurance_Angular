@@ -1,0 +1,19 @@
+<header>
+    <nav class ="navbar navbar-expand-md navbar-dark bg-dark">
+    <div><a href="https://www.javainuse.com" class="navbar-brand"></a></div>
+    
+    <ul class="navbar-nav">
+      
+      <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li> 
+      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a></li>
+
+    </ul>
+   
+      <div>
+        <h4>
+          Welcome, <span  style="text-align: left;text-decoration-color: white;" >{{sessionStorage.getItem('username')}}</span>
+        </h4>
+        </div>
+
+    </nav>
+    </header>
