@@ -9,7 +9,9 @@ export class AutheticationService {
   
   user: User | any;
   authority:any;
-  private baseUrl = 'http://localhost:8081/Insurance/login';
+
+  
+  private baseUrl = 'http://localhost:8080/Insurance/login';
   constructor(private http: HttpClient) { }
 
  /* autheticate(username: String, password: String) {
@@ -65,7 +67,9 @@ autheticate(username: string,password: any){
 
    this.checkAuthority(this.authority);
    
-   sessionStorage.setItem('username',data.split(':')[0]);
+   sessionStorage.setItem('username',username);
+   sessionStorage.setItem('userId',data.split(':')[0]);
+
 
     sessionStorage.setItem('token',data.split(':')[1]);
     }, error => console.log(error));
@@ -94,6 +98,11 @@ checkAuthority(authority:any)
    if(this.authority.includes('USER')){
 
     sessionStorage.setItem('USER',"true");
+
+   }
+   if(this.authority.includes('ADMIN')){
+
+    sessionStorage.setItem('ADMIN',"true");
 
    }
 
@@ -125,7 +134,15 @@ isLoggedInUser()
 isUserLoggedIn()
 {
   let user=sessionStorage.getItem('username');
+ 
   return !(user===null);
+}
+isLoggedInAdmin()
+{
+
+  let admin=sessionStorage.getItem('ADMIN');
+  console.log("admin"+admin);
+  return !(admin===null);
 }
 
 logOut()
@@ -135,6 +152,8 @@ logOut()
   sessionStorage.removeItem('USER');
   sessionStorage.removeItem('EDITOR');
   sessionStorage.removeItem('CREATOR');
+  sessionStorage.removeItem('userId');
+  sessionStorage.removeItem('ADMIN');
 }
 
 }

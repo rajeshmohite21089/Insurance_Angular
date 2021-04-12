@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { AdminDetail } from './UserDetail';
 
 @Injectable({
   providedIn: 'root'
@@ -35,5 +36,11 @@ export class EmployeeService {
    // console.log('getEmployeesListByFistName'+firstName);
     return this.http.get(`${this.baseUrl}/searchEmployees/${firstName}`);
 
+  }
+
+  saveAdminDetails(adminDetail : AdminDetail) : Observable<any>
+  {
+      let url = this.baseUrl + "users";
+      return this.http.post(url,adminDetail);
   }
   }

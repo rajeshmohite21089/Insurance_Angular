@@ -1,3 +1,5 @@
+import { User } from "./user";
+
 export class Insurance{
 
     id:any;
@@ -9,4 +11,5 @@ export class Insurance{
     maturityPariod:any;
     maturityAmount:any;
     validity:any;
+    user:User | any;
 }

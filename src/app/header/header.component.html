@@ -6,12 +6,14 @@
       
       <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li> 
       <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a></li>
+      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/add" class="nav-link">Add Policies</a></li>
+      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/signUp" class="nav-link">Sign Up</a></li>
 
     </ul>
    
       <div>
         <h4>
-          Welcome, <span  style="text-align: left;text-decoration-color: white;" >{{sessionStorage.getItem('username')}}</span>
+          <span  style="text-align: left;text-decoration-color: white;" >{{sessionStorage.getItem('username')}}</span>
         </h4>
         </div>
 

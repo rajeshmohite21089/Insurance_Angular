@@ -11,6 +11,8 @@ import { InsuranceListComponent } from './insurance-list/insurance-list.componen
 import { InsuranceDetailsComponent } from './insurance-details/insurance-details.component';
 import { CreateInsuranceComponent } from './create-insurance/create-insurance.component';
 import { UpdateInsuranceComponent } from './update-insurance/update-insurance.component';
+import { SignupComponent } from './sign-up/sign-up.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'employee', pathMatch: 'full' },
@@ -20,7 +22,8 @@ const routes: Routes = [
   { path: 'details/:id', component: InsuranceDetailsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent },
-  { path: 'insurances', component: InsuranceListComponent }
+  { path: 'insurances', component: InsuranceListComponent },
+  { path: 'signUp', component: SignupComponent }
 
 ];
 

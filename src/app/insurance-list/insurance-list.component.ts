@@ -17,12 +17,15 @@ export class InsuranceListComponent implements OnInit {
 
   insurance: Insurance = new Insurance;
   firstName: any;
+  userId:number | undefined;
 
   constructor(private insuranceService: InsuranceServiceService,public loginService:AutheticationService,
     private router: Router) {}
 
   ngOnInit() {
-   // this.reloadData();
+
+    this.userId=Number(sessionStorage.getItem("userId"));
+    this.reloadData(this.userId);
   }
 
   form = new FormGroup({  
@@ -49,16 +52,14 @@ export class InsuranceListComponent implements OnInit {
   } 
 
 
-  reloadData() {
-   this.insurances = this.insuranceService.getInsuranceList();
+  reloadData(id:number) {
+   this.insurances = this.insuranceService.getInsuranceList(id);
     //console.log(this.employees);
   }
 
   getData(insurance: any)  
   {  
-    console.log('start getData this.insurance.policyTypeCode'+this.insurance.policyTypeCode);
     this.insurances = this.insuranceService.getInsuranceListByPolicyTypeCode(this.insurance.policyTypeCode);
-    console.log('end getData this.insurance.policyTypeCode'+this.insurance.policyTypeCode);
 
     this.checkSize();
 
@@ -85,7 +86,7 @@ if(this.insurances!==null){
       .subscribe(
         data => {
           console.log(data);
-          this.reloadData();
+        //  this.reloadData(this.userId);
         },
         error => console.log(error));
   }

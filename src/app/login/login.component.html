@@ -1,14 +1,24 @@
 <div class="container">
     <div>
 
-      User Name : <input type="text" class="form-control" id="Username" required [(ngModel)]="user.username" name="username">
+      <div class="row">  
+        <div class=" col-md-offset-1 col-md-4">  
+            <label for="email"> Username </label>  
+            <input type="text" class="form-control" id="Username" required [(ngModel)]="user.username" name="username">  
+        </div>  
+      </div>
 
-    
-      Password :  <input type="text" class="form-control" id="password" required [(ngModel)]="user.password" name="password">
-
+      <div class="row">  
+        <div class=" col-md-offset-1 col-md-4">  
+            <label for="password"> Password </label>  
+            <input type="text" class="form-control" id="password" required [(ngModel)]="user.password" name="password">  
+        </div>  
+      </div>  
 
     </div>
+    
     <button (click)=checkLogin() class="btn btn-success">
       Login
     </button>
-  </div>
+
+    

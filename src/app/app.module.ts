@@ -18,6 +18,7 @@ import { InsuranceListComponent } from './insurance-list/insurance-list.componen
 import { InsuranceDetailsComponent } from './insurance-details/insurance-details.component';
 import { CreateInsuranceComponent } from './create-insurance/create-insurance.component';
 import { UpdateInsuranceComponent } from './update-insurance/update-insurance.component';
+import { SignupComponent } from './sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { UpdateInsuranceComponent } from './update-insurance/update-insurance.co
     InsuranceListComponent,
     InsuranceDetailsComponent,
     CreateInsuranceComponent,
-    UpdateInsuranceComponent
+    UpdateInsuranceComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

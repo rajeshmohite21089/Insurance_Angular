@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AutheticationService } from '../service/authetication.service';
 
 @Component({
@@ -8,9 +9,14 @@ import { AutheticationService } from '../service/authetication.service';
 })
 export class HeaderComponent implements OnInit {
   public sessionStorage = sessionStorage;
-  constructor(public loginService:AutheticationService) { }
+  constructor(public loginService:AutheticationService,private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  add(){
+
+    this.router.navigate(['add']);
   }
 
 }
