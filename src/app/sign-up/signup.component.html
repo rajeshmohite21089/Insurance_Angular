@@ -1,0 +1,54 @@
+<h2>SignUp form</h2>  
+  
+<form [formGroup]="form" #AdminInformation (ngSubmit)="AdminForm()">
+  
+  <div class="row">  
+    <div class=" col-md-offset-1 col-md-4">  
+        <label for="firstName"> First Name </label>  
+       <input formControlName="firstName" class="form-control" type="text">  
+       <!-- <input type="text" class="form-control" id="firstName" required [(ngModel)]="adminDetail.firstName" name="firstName"> --> 
+    </div>  
+  </div>  
+  
+  <div class="row">  
+    <div class=" col-md-offset-1 col-md-4">  
+        <label for="lastName"> Last Name </label>  
+      <input formControlName="lastName" class="form-control" type="text">   
+      <!--   <input type="text" class="form-control" id="lastName" required [(ngModel)]="adminDetail.lastName" name="lastName"> -->
+
+    </div>  
+  </div>  
+  <div class="row">  
+    <div class=" col-md-offset-1 col-md-4">  
+        <label for="role"> email </label>  
+        <input formControlName="email" class="form-control" type="text">
+      <!--   <input type="text" class="form-control" id="email" required [(ngModel)]="adminDetail.email" name="email">-->
+   
+    </div>  
+  </div>  
+  
+  <div class="row">  
+    <div class=" col-md-offset-1 col-md-4">  
+        <label for="password"> Password </label>  
+       <input formControlName="password" class="form-control" type="password">   
+       <!--  <input type="text" class="form-control" id="password" required [(ngModel)]="adminDetail.password" name="password">-->
+
+    </div>  
+  </div>  
+  
+ <div class="row">  
+    <div class=" col-md-offset-1 col-md-4">  
+        <label for="confirmPassword"> Confirm Password </label>  
+        <input formControlName="confirmPassword" class="form-control" type="password">   
+    </div>  
+  </div> 
+  
+  
+  
+  <div class="row" style="margin-top: 40px;">  
+    <div class="col-md-offset-1 col-md-4">  
+        <button class="btn btn-md btn-primary btn-style"  >Save</button>  
+    </div>  
+  </div>  
+  
+</form>  
