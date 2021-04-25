@@ -4,4 +4,5 @@ export class AdminDetail {
 	password : string | undefined ;
 	lastName : string | undefined;
 	username:String | undefined;
+	confirmPassword:String|undefined;
 }

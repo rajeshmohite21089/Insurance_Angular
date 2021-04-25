@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 ;
 import { Router } from '@angular/router';
 import { AdminDetail } from '../UserDetail';
@@ -13,26 +13,50 @@ import { InsuranceServiceService } from '../insurance-service.service';
 })
 export class SignupComponent implements OnInit {
 
-  private adminDetail = new AdminDetail();
+  public adminDetail = new AdminDetail();
+  registerForm!: FormGroup;
+  submitted=false;
 
-  constructor(private adminService : InsuranceServiceService, private router : Router) { }
+  constructor(private adminService : InsuranceServiceService, private router : Router,private formBuilder:FormBuilder) { }
 
   ngOnInit() {
-  }
+  
 
   // create the form object.
-  form = new FormGroup({
+ /* this.registerForm = new FormGroup({
       firstName : new FormControl('' , Validators.required),
       email : new FormControl('' , Validators.required),
       password : new FormControl('' , Validators.required),
       confirmPassword : new FormControl('' , Validators.required),
       lastName : new FormControl('' , Validators.required),
-  });
+  });*/
+  this.registerForm = this.formBuilder.group ({
+    firstName : ['' , Validators.required],
+    lastName : ['' , Validators.required],
+    password : ['' , Validators.required,Validators.minLength(5)],
+    email : ['' ,[ Validators.required,Validators.email]],
+    confirmPassword : ['' , Validators.required,Validators.minLength(5)],
+});
 
+}
+  get f(){
+    return this.registerForm?.controls;
+    
+      }
   AdminForm()
   {
-     let pass = this.Password?.value;
+
+    this.submitted=true;
+
+    if(this.registerForm.invalid){
+
+      return;
+    }
+    let pass = this.Password?.value;
      let confirmPass = this.ConfirmPassword?.value;
+     if(this.registerForm.invalid){
+       return;
+     }
 
      if(pass == confirmPass)
      {
@@ -42,11 +66,8 @@ export class SignupComponent implements OnInit {
         this.adminDetail.lastName = this.lastName?.value;
         this.adminDetail.username=this.firstName?.value;
 
-        console.log("this.adminDetail.firstName"+this.adminDetail.firstName);
-        console.log("this.adminDetail.firstName"+this.adminDetail.email);
-        console.log("this.adminDetail.firstName"+this.adminDetail.password);
-        console.log("this.adminDetail.firstName"+this.adminDetail.lastName);
-        console.log("this.adminDetail.firstName"+this.adminDetail.username);
+        
+        
 
 
         
@@ -74,31 +95,33 @@ export class SignupComponent implements OnInit {
         );
         
      }
-     else
+   else
      {
         alert("Password and confirm password not match.");
      }
   }
 
 
-  get firstName(){
-    return this.form.get('firstName');
+ get firstName(){
+    return this.registerForm.get('firstName');
   }
 
   get Email(){
-      return this.form.get('email');
+      return this.registerForm.get('email');
   }
 
   get Password(){
-      return this.form.get('password');
+      return this.registerForm.get('password');
   }
 
   get ConfirmPassword(){
-      return this.form.get('confirmPassword');
+      return this.registerForm.get('confirmPassword');
   }
 
   get lastName(){
-      return this.form.get('lastName');
+      return this.registerForm.get('lastName');
   }
+
+  
   
 }

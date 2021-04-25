@@ -14,13 +14,25 @@ import { AutheticationService } from '../service/authetication.service';
 export class InsuranceListComponent implements OnInit {
 
   insurances!: Observable<Insurance[]>;
+  insurancess: Array<any>;
+  totalRecords!: string;
+  
+
+  page = 1;
+  count = 0;
+  tableSize = 5;
+  tableSizes = [3, 6, 9, 12];
+
 
   insurance: Insurance = new Insurance;
   firstName: any;
   userId:number | undefined;
 
   constructor(private insuranceService: InsuranceServiceService,public loginService:AutheticationService,
-    private router: Router) {}
+    private router: Router) {
+
+      this.insurancess=new Array<any>();
+    }
 
   ngOnInit() {
 
@@ -53,8 +65,14 @@ export class InsuranceListComponent implements OnInit {
 
 
   reloadData(id:number) {
-   this.insurances = this.insuranceService.getInsuranceList(id);
-    //console.log(this.employees);
+     this.insuranceService.getInsuranceList(id)
+    
+    .subscribe((data)=>{
+      console.log(data);
+      this.insurancess=data;
+      this.totalRecords=this.insurancess.length.toString();
+   })
+    
   }
 
   getData(insurance: any)  
@@ -98,6 +116,18 @@ if(this.insurances!==null){
   updateInsurance(id: number){
     this.router.navigate(['update', id]);
   }
+
+  onTableSizeChange(event: { target: { value: number; }; }): void {
+    this.tableSize = event.target.value;
+    this.page = 1;
+    this.userId=Number(sessionStorage.getItem("userId"));
+    this.reloadData(this.userId);
+  }  
+  onTableDataChange(event: number){
+    this.page = event;
+    this.userId=Number(sessionStorage.getItem("userId"));
+    this.reloadData(this.userId);
+  } 
 }
 
 

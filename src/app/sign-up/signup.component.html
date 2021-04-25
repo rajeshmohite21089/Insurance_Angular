@@ -1,45 +1,62 @@
-<h2>SignUp form</h2>  
-  
-<form [formGroup]="form" #AdminInformation (ngSubmit)="AdminForm()">
+
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+<div class="col-md-6 offset-md-2">
+  <h2>SignUp form</h2>  
+<form [formGroup]="registerForm"  (ngSubmit)="AdminForm()">
   
   <div class="row">  
-    <div class=" col-md-offset-1 col-md-4">  
+    <div class="form-group">  
         <label for="firstName"> First Name </label>  
-       <input formControlName="firstName" class="form-control" type="text">  
+       <input  type="text" formControlName="firstName" class="form-control" [ngClass]="{'is-invalid':submitted && f.firstName.errors}"/>  
        <!-- <input type="text" class="form-control" id="firstName" required [(ngModel)]="adminDetail.firstName" name="firstName"> --> 
+       <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+        <div *ngIf="f.firstName.errors.required" >First Name is Required</div>
+         </div>
     </div>  
   </div>  
   
   <div class="row">  
-    <div class=" col-md-offset-1 col-md-4">  
+    <div class="form-group">  
         <label for="lastName"> Last Name </label>  
-      <input formControlName="lastName" class="form-control" type="text">   
+      <input formControlName="lastName" class="form-control" type="text" [ngClass]="{'is-invalid':submitted && f.lastName.errors}"/>   
       <!--   <input type="text" class="form-control" id="lastName" required [(ngModel)]="adminDetail.lastName" name="lastName"> -->
-
+      <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+        <div *ngIf="f.lastName.errors.required" >last Name is Required</div>
+         </div>
     </div>  
   </div>  
   <div class="row">  
-    <div class=" col-md-offset-1 col-md-4">  
+    <div class="form-group">  
         <label for="role"> email </label>  
-        <input formControlName="email" class="form-control" type="text">
+        <input formControlName="email" class="form-control" type="text"  [ngClass]="{'is-invalid':submitted && f.email.errors}"/>
       <!--   <input type="text" class="form-control" id="email" required [(ngModel)]="adminDetail.email" name="email">-->
-   
+      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+        <div *ngIf="f.email.errors.email" >email must be a valid email address</div>
+        <div *ngIf="f.email.errors.required" >email  is Required</div>
+         </div>
     </div>  
   </div>  
   
   <div class="row">  
-    <div class=" col-md-offset-1 col-md-4">  
+    <div class="form-group">  
         <label for="password"> Password </label>  
-       <input formControlName="password" class="form-control" type="password">   
+       <input formControlName="password" class="form-control" type="password" [ngClass]="{'is-invalid':submitted && f.password.errors}"/>   
        <!--  <input type="text" class="form-control" id="password" required [(ngModel)]="adminDetail.password" name="password">-->
-
+       <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+        <div *ngIf="f.password.errors.required" >password  is Required</div>
+         </div>
     </div>  
   </div>  
   
  <div class="row">  
-    <div class=" col-md-offset-1 col-md-4">  
+    <div class="form-group">  
         <label for="confirmPassword"> Confirm Password </label>  
-        <input formControlName="confirmPassword" class="form-control" type="password">   
+        <input formControlName="confirmPassword" class="form-control" type="password" [ngClass]="{'is-invalid':submitted && f.confirmPassword.errors}"/>   
+        <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+          <div *ngIf="f.confirmPassword.errors.required" >confirmPassword  is Required</div>
+           </div>
     </div>  
   </div> 
   
@@ -47,8 +64,11 @@
   
   <div class="row" style="margin-top: 40px;">  
     <div class="col-md-offset-1 col-md-4">  
-        <button class="btn btn-md btn-primary btn-style"  >Save</button>  
+        <button  class="btn  btn-primary">Save</button>  
     </div>  
   </div>  
   
 </form>  
+</div>  
+</div>
+</div>  

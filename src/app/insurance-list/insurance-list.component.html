@@ -1,3 +1,4 @@
+<div class="col-md-6 offset-md-2"></div>
 <div class="row">  
     <div class="form-outline">   
         <form [formGroup]="form" #searchInfo (ngSubmit)="searchForm(searchInfo)">  
@@ -32,7 +33,12 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let insurance of insurances | async">
+            <tr *ngFor="let insurance of insurancess| paginate : {
+              itemsPerPage: tableSize,
+              currentPage: page,
+              totalItems: count
+            }">
+      
               <td>{{insurance.policyTypeCode}}</td>
               <td>{{insurance.policyName}}</td>
               <td>{{insurance.description}}</td>
@@ -48,6 +54,18 @@
   
           </tbody>
         </table>
+        <div>
+         
+          <pagination-controls 
+          
+          previousLabel="Prev" 
+          nextLabel="Next" 
+          (pageChange)="onTableDataChange($event)">
+        </pagination-controls>
+  
+
+          </div>
       </div>
     </div>
     </div>
+  

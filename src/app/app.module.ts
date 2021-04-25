@@ -19,6 +19,7 @@ import { InsuranceDetailsComponent } from './insurance-details/insurance-details
 import { CreateInsuranceComponent } from './create-insurance/create-insurance.component';
 import { UpdateInsuranceComponent } from './update-insurance/update-insurance.component';
 import { SignupComponent } from './sign-up/sign-up.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { SignupComponent } from './sign-up/sign-up.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
   bootstrap: [AppComponent]
