@@ -9,7 +9,7 @@ import { Insurance } from './insurance';
 })
 export class InsuranceServiceService {
 
-  private baseUrl = 'http://localhost:8080/Insurance/insurance';
+  private baseUrl = 'http://localhost:8081/Insurance/insurance';
 
   constructor(private http: HttpClient) { }
 
