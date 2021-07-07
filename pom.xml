@@ -73,7 +73,7 @@
         <version>3.2.2</version>
         <configuration>
             <failOnMissingWebXml>false</failOnMissingWebXml>
-            <warName>agular8-springboot-client</warName>
+            <warName>Insurance-client</warName>
             
             <webResources>
                 <resource>

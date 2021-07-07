@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --base-href /agular8-springboot-client/",
-    "buildProduction": "ng build  --base-href /agular8-springboot-client/",
+    "build": "ng build --base-href /Insurance-client/",
+    "buildProduction": "ng build  --base-href /Insurance-client/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
